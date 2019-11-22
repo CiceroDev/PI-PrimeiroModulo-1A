@@ -18,14 +18,14 @@ public class Pi1Modulo1A {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-     String[] nome = new String[10];
+        String[] nome = new String[10];
         String[] email = new String[10];
         String[] usuario = new String[10];
         String[] senha = new String[10];
         String[] telefone = new String[10];
+
         String[] profOuAluno = new String[10];
-        
-        
+
         String[] categoria = new String[10];
         String[] materia = new String[10];
 
@@ -34,8 +34,8 @@ public class Pi1Modulo1A {
 
         boolean encontrado;
 
-        do {           
-                       
+        do {
+
             String op = JOptionPane.showInputDialog(null, "1. Cadastrar\n"
                     + "2. Alterar\n"
                     + "3. Excluir\n"
@@ -85,19 +85,80 @@ public class Pi1Modulo1A {
                 usuario[pos] = JOptionPane.showInputDialog(null, "Informe o nome de usúario");
                 senha[pos] = JOptionPane.showInputDialog(null, "Informe a Senha");
                 telefone[pos] = JOptionPane.showInputDialog(null, "Informe numero de telefone com o DDD");
-                
+
                 String aprenderouensinar = "";
-                aprenderouensinar = (controle ==1) ? "ensinar" : "aprender";
-                
-                
-                    String idCategoria = JOptionPane.showInputDialog(null, 
-                            "Qaul Categoria deseja "+ aprenderouensinar +"\n"
+                aprenderouensinar = (controle == 1) ? "ensinar" : "aprender";
+
+                String idCategoria = JOptionPane.showInputDialog(null,
+                        "Qaul Categoria deseja " + aprenderouensinar + "\n"
+                        + "1 Ciências Humanas e suas Tecnologias\n"
+                        + "2 Ciências da Natureza e suas Tecnologias\n"
+                        + "3 Linguagens, Códigos e suas Tecnologias\n"
+                        + "4 Matemática e suas Tecnologias\n"
+                        + "5 Redação.");
+
+                switch (idCategoria) {
+                    case "1":
+                        categoria[pos] = "Ciências Humanas e suas Tecnologias";
+                        break;
+                    case "2":
+                        categoria[pos] = "Ciências da Natureza e suas Tecnologias";
+                        break;
+                    case "3":
+                        categoria[pos] = "Linguagens, Códigos e suas Tecnologias";
+                        break;
+                    case "4":
+                        categoria[pos] = "Matemática e suas Tecnologias";
+                        break;
+                    case "5":
+                        categoria[pos] = "Redação";
+                        break;
+                    default:
+                        JOptionPane.showMessageDialog(null, "Valor invalido!");
+                }
+                pos++;
+                controle = 99;
+
+            }
+
+            encontrado = false; //por padrão;
+
+            if (controle == 2) {
+
+                String pesquisa = JOptionPane.showInputDialog(null, "Informe o nome de usuario");
+                for (int i = 0; i < pos; i++) {
+                    if (usuario[i].equals(pesquisa)) {
+                        
+                    }
+                    encontrado = true;
+                    String id = JOptionPane.showInputDialog(null, "1. Professor\n2. Aluno");
+                    switch (id) {
+                        case "1":
+                            profOuAluno[pos] = "1";
+                            break;
+                        case "2":
+                            profOuAluno[pos] = "2";
+                            break;
+                        default:
+                            JOptionPane.showMessageDialog(null, "Valor invalido!");
+                    }
+                    nome[pos] = JOptionPane.showInputDialog(null, "Informe o nome completo");
+                    email[pos] = JOptionPane.showInputDialog(null, "Informe um E-mail valido");
+                    usuario[pos] = JOptionPane.showInputDialog(null, "Informe o nome de usúario");
+                    senha[pos] = JOptionPane.showInputDialog(null, "Informe a Senha");
+                    telefone[pos] = JOptionPane.showInputDialog(null, "Informe numero de telefone com o DDD");
+
+                    String aprenderouensinar = "";
+                    aprenderouensinar = (controle == 1) ? "ensinar" : "aprender";
+
+                    String idCategoria = JOptionPane.showInputDialog(null,
+                            "Qaul Categoria deseja " + aprenderouensinar + "\n"
                             + "1 Ciências Humanas e suas Tecnologias\n"
                             + "2 Ciências da Natureza e suas Tecnologias\n"
                             + "3 Linguagens, Códigos e suas Tecnologias\n"
                             + "4 Matemática e suas Tecnologias\n"
                             + "5 Redação.");
-                    
+
                     switch (idCategoria) {
                         case "1":
                             categoria[pos] = "Ciências Humanas e suas Tecnologias";
@@ -117,20 +178,84 @@ public class Pi1Modulo1A {
                         default:
                             JOptionPane.showMessageDialog(null, "Valor invalido!");
                     }
-                    pos++;
-                    controle = 99;
-                    
+
+                }
+                controle = 99;
+
             }
             
-            encontrado = false; //por padrão;
-            
-            if (controle == 2) {
-                
+            if (encontrado == false) {
+                JOptionPane.showMessageDialog(null, "Não encontrado!");
             }
+            if (controle == 3) {
 
-        } while (controle != 0);
-        JOptionPane.showMessageDialog(null, "Programa encerrado!");
+                String pesquisa = JOptionPane.showInputDialog(null, "Informe o nome de usuario");
+                for (int i = 0; i < pos; i++) {
+                    if (usuario[i].equals(pesquisa)) {
+                        encontrado = true;
+                        nome[i] = "";
+                        email[i] = "";
+                        usuario[i] = "";
+                        senha[i] = "";
+                        telefone[i] = "";
 
+                        profOuAluno[i] = "";
+
+                        categoria[i] = "";
+                        materia[i] = "";
+                  
+                    }
+
+                }
+                controle = 99;
+
+            }
+            
+            if (encontrado == false) {
+                JOptionPane.showMessageDialog(null, "Não encontrado!");
+            }
+            if (controle == 4) {
+
+                String pesquisa = JOptionPane.showInputDialog(null, "Informe o nome de usuario");
+                for (int i = 0; i < pos; i++) {
+                    if (usuario[i].equals(pesquisa)) {
+                        encontrado = true;
+                        
+                        int pA = Integer.parseInt(profOuAluno[i])%2;
+                        String aprenderouensinar = "";
+                        aprenderouensinar = (pA == 1) ? "Professor" : "Aluno";
+                        
+                        
+                        JOptionPane.showMessageDialog(null,
+                                  
+                                "Nome: "+nome[i]+"\n"
+                                + "E-mail: "+email[i]+"\n"
+                                + "Nome: "+usuario[i]+"\n"
+                                + "Telefone: "+telefone[i]+"\n"
+                                +aprenderouensinar+"\n"
+                                + "Categoria: "+categoria[i]+"\n"
+                                + "Materia: "+materia[i]+"\n"
+                        );
+                   
+                   
+                    }
+
+                }
+                controle = 99;
+
+            }
+            
+            if (encontrado == false) {
+                JOptionPane.showMessageDialog(null, "Não encontrado!");
+            }
+            
+            
+            
+            }while (controle != 0);
+            JOptionPane.showMessageDialog(null, "Programa encerrado!");
+
+        }
+
+
+    
     }
-
-}
