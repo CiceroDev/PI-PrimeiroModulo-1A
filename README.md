@@ -1,7 +1,7 @@
-# Escola Técnica Estadual José Humberto de Moura Cavalcanti
+Escola Técnica Estadual José Humberto de Moura Cavalcanti
 # Curso Técnico em Desenvolvimento de Sistemas
 
-booster classes ENEM
+# Booster Classes ENEM
 
 Caio Henrique Barbosa de Amorim
 Cícero Luís Alexandre da Silva
