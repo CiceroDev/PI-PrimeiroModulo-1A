@@ -18,17 +18,43 @@ public class Pi1Modulo1A {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        String[] nome = new String[10];
-        String[] email = new String[10];
-        String[] usuario = new String[10];
-        String[] senha = new String[10];
-        String[] telefone = new String[10];
-
-        String[] profOuAluno = new String[10];
-
-        String[] categoria = new String[10];
-        String[] materia = new String[10];
-
+        
+        int tamanho = 30;
+        
+        //Input para Alunos
+        String[] matriculaAluno = new String[tamanho];
+        String[] nomeAluno = new String[tamanho];
+        String[] emailAluno = new String[tamanho];
+        String[] usuarioAluno = new String[tamanho];
+        String[] senhaAluno = new String[tamanho];
+        String[] fataNascAluno = new String[tamanho];
+        String[] telefoneAluno = new String[tamanho];
+        String[] cpfAluno = new String[tamanho];
+        String[] endereco = new String[tamanho];
+        String[] logradouro = new String[tamanho];
+        String[] cidadeAluno = new String[tamanho];
+        String[] estado = new String[tamanho];
+        String[] categoriaENEMAluno = new String[tamanho];
+        String[] materiaAluno = new String[tamanho];
+       
+        //Input para Professor
+        String[] matriculaProf = new String[tamanho];
+        String[] nomeProf = new String[tamanho];
+        String[] emailProf = new String[tamanho];
+        String[] usuarioProf = new String[tamanho];
+        String[] senhaProf = new String[tamanho];
+        String[] fataNascProf = new String[tamanho];
+        String[] telefoneProf = new String[tamanho];
+        String[] cpfProf = new String[tamanho];
+        String[] enderecoProf = new String[tamanho];
+        String[] logradouroProf = new String[tamanho];
+        String[] cidadeAlunoProf = new String[tamanho];
+        String[] estadoProf = new String[tamanho];
+        String[] categoriaENEMProf = new String[tamanho];
+        String[] materiaProf = new String[tamanho];
+        String[] nestrelasProf = new String[tamanho];
+        
+        
         int controle = 99;
         int pos = 0;
 
