@@ -16,9 +16,10 @@ public class Pi1Modulo1A {
     /**
      * @param args the command line arguments
      */
+    @SuppressWarnings("empty-statement")
     public static void main(String[] args) {
-        // TODO code application logic here
 
+        // TODO code application logic here
         int tamanho = 30;
 
         //Input para Alunos
@@ -39,7 +40,7 @@ public class Pi1Modulo1A {
 
         String[] enderecoAluno = new String[tamanho];
         String[] cepAluno = new String[tamanho];
-        String[] logradouroAluno = new String[tamanho];
+
         String[] cidadeAluno = new String[tamanho];
         String[] estadoAluno = new String[tamanho];
 
@@ -64,7 +65,6 @@ public class Pi1Modulo1A {
 
         cepAluno[0] = "75802-010";
         enderecoAluno[0] = "Rua 101 31";
-        logradouroAluno[0] = "Rua";
         cidadeAluno[0] = "Jataí";
         estadoAluno[0] = "GO";
 
@@ -73,7 +73,7 @@ public class Pi1Modulo1A {
 
         //////////////////////////////////////
         //Input para Professor
-        String[] matriculaProf = new String[tamanho];
+        String[] matriculaProf = new String[tamanho];//auto increment
         String[] nomeProf = new String[tamanho];
         String[] emailProf = new String[tamanho];
         String[] usuarioProf = new String[tamanho];
@@ -82,22 +82,26 @@ public class Pi1Modulo1A {
         String[] telefoneProf = new String[tamanho];
         String[] cpfProf = new String[tamanho];
         String[] enderecoProf = new String[tamanho];
-        String[] logradouroProf = new String[tamanho];
+
         String[] cidadeProf = new String[tamanho];
         String[] estadoProf = new String[tamanho];
         String[] categoriaENEMProf = new String[tamanho];
         String[] materiaProf = new String[tamanho];
         String[] sexoProf = new String[tamanho];
 
-        int controle = 99;
+        int controle = 6;
         int posA = 1;
         int posP = 1;
 
         boolean encontrado;
 
+////////////////////////////////////////////////////////////////////////////////
         do {
-            encontrado = true; //por padrão;
+            JOptionPane.showMessageDialog(null, controle);
 
+            encontrado = false; //por padrão;
+
+            //Menu Painel de controle
             String op = JOptionPane.showInputDialog(null, "1. Cadastrar\n"
                     + "2. Alterar\n"
                     + "3. Excluir\n"
@@ -126,8 +130,11 @@ public class Pi1Modulo1A {
                 default:
                     JOptionPane.showMessageDialog(null, "Valor incorreto digite um numero entre 0 e 5");
             }
+
+            // Cadastrar Novo usuario
             if (controle == 1) {
 
+                //Pegunta se vai cadastrar um aluno ou professor
                 String id = JOptionPane.showInputDialog(null, "1. Professor\n2. Aluno");
                 int cadastrar = 0;
                 switch (id) {
@@ -140,6 +147,8 @@ public class Pi1Modulo1A {
                     default:
                         JOptionPane.showMessageDialog(null, "Valor invalido!");
                 }
+
+                //cadastra um professor
                 if (cadastrar == 1) {
                     nomeProf[posP] = JOptionPane.showInputDialog(null, "Informe o nome completo");
 
@@ -154,7 +163,7 @@ public class Pi1Modulo1A {
                     cpfProf[posP] = JOptionPane.showInputDialog(null, "Informe o nome completo");
 
                     enderecoProf[posP] = JOptionPane.showInputDialog(null, "Informe o nome completo");
-                    logradouroProf[posP] = JOptionPane.showInputDialog(null, "Informe o nome completo");
+
                     cidadeProf[posP] = JOptionPane.showInputDialog(null, "Informe o nome completo");
                     estadoProf[posP] = JOptionPane.showInputDialog(null, "Informe o nome completo");
 
@@ -193,9 +202,12 @@ public class Pi1Modulo1A {
                             JOptionPane.showMessageDialog(null, "Valor invalido!");
                     }
                     posP++;
+                    controle = 99;
 
                 }
+/////////////////////cadastra um aluno///////////////////////////////////
                 if (cadastrar == 2) {
+
                     nomeAluno[posA] = JOptionPane.showInputDialog(null, "Informe o nome completo");
 
                     usuarioAluno[posA] = JOptionPane.showInputDialog(null, "Informe o nome completo");
@@ -209,7 +221,7 @@ public class Pi1Modulo1A {
                     cpfAluno[posA] = JOptionPane.showInputDialog(null, "Informe o nome completo");
 
                     enderecoAluno[posA] = JOptionPane.showInputDialog(null, "Informe o nome completo");
-                    logradouroAluno[posA] = JOptionPane.showInputDialog(null, "Informe o nome completo");
+
                     cidadeAluno[posA] = JOptionPane.showInputDialog(null, "Informe o nome completo");
                     estadoAluno[posA] = JOptionPane.showInputDialog(null, "Informe o nome completo");
 
@@ -249,12 +261,159 @@ public class Pi1Modulo1A {
                     posA++;
 
                 }
-
                 controle = 99;
-
             }
 
+///////////////////////// Altera os cadastros //////////////////////////////
             if (controle == 2) {
+
+                String id2 = JOptionPane.showInputDialog(null, "1. Professor\n2. Aluno");
+
+                int alterar = 0;
+                switch (id2) {
+                    case "1":
+                        alterar = 1;
+                        break;
+                    case "2":
+                        alterar = 2;
+                        break;
+                    default:
+                        JOptionPane.showMessageDialog(null, "Valor invalido!");
+                }
+
+///////////////////// se aulerar == 1  autera o professor///////////////////
+                if (alterar == 1) {
+                    String pesquisa = JOptionPane.showInputDialog(null, "Informe o nome de usuario");
+                    for (int i = 0; i < posA; i++) {
+                        if (usuarioProf[i].equals(pesquisa)) {
+
+                            encontrado = true;
+
+                            nomeProf[i] = JOptionPane.showInputDialog(null, "Informe o nome completo");
+
+                            usuarioProf[i] = JOptionPane.showInputDialog(null, "Informe o nome completo");
+                            senhaProf[posP] = JOptionPane.showInputDialog(null, "Informe o nome completo");
+
+                            emailProf[i] = JOptionPane.showInputDialog(null, "Informe um E-mail valido");
+                            sexoProf[i] = JOptionPane.showInputDialog(null, "Informe o nome completo");
+                            telefoneProf[i] = JOptionPane.showInputDialog(null, "Informe numero de telefone com o DDD");
+                            dataNascProf[i] = JOptionPane.showInputDialog(null, "Informe o nome completo");
+
+                            cpfProf[i] = JOptionPane.showInputDialog(null, "Informe o nome completo");
+
+                            enderecoProf[i] = JOptionPane.showInputDialog(null, "Informe o nome completo");
+
+                            cidadeProf[i] = JOptionPane.showInputDialog(null, "Informe o nome completo");
+                            estadoProf[i] = JOptionPane.showInputDialog(null, "Informe o nome completo");
+
+                            String aprenderouensinar = "";
+                            int idMateria = 0;
+                            String idCategoria = JOptionPane.showInputDialog(null,
+                                    "Qaul Categoria de ensino você pertence?\n\n"
+                                    + "1 Ciências Humanas e suas Tecnologias\n"
+                                    + "2 Ciências da Natureza e suas Tecnologias\n"
+                                    + "3 Linguagens, Códigos e suas Tecnologias\n"
+                                    + "4 Matemática e suas Tecnologias\n"
+                                    + "5 Redação.");
+
+                            switch (idCategoria) {
+                                case "1":
+                                    categoriaENEMProf[posP] = "Ciências Humanas e suas Tecnologias";
+
+                                    break;
+                                case "2":
+                                    categoriaENEMProf[posP] = "Ciências da Natureza e suas Tecnologias";
+
+                                    break;
+                                case "3":
+                                    categoriaENEMProf[posP] = "Linguagens, Códigos e suas Tecnologias";
+
+                                    break;
+                                case "4":
+                                    categoriaENEMProf[posP] = "Matemática e suas Tecnologias";
+
+                                    break;
+                                case "5":
+                                    categoriaENEMProf[posP] = "Redação";
+
+                                    break;
+                                default:
+                                    JOptionPane.showMessageDialog(null, "Valor invalido!");
+                            }
+
+                        }
+                    }
+                }
+
+///////////////////// se aulerar == 1  autera o Aluno ///////////////////////
+                if (alterar == 2) {
+                    String pesquisa = JOptionPane.showInputDialog(null, "Informe o nome de usuario");
+                    for (int i = 0; i < posA; i++) {
+                        if (usuarioAluno[i].equals(pesquisa)) {
+
+                            encontrado = true;
+
+                            nomeAluno[posA] = JOptionPane.showInputDialog(null, "Informe o nome completo");
+
+                            usuarioAluno[i] = JOptionPane.showInputDialog(null, "Informe o nome completo");
+                            senhaAluno[posA] = JOptionPane.showInputDialog(null, "Informe o nome completo");
+
+                            emailAluno[i] = JOptionPane.showInputDialog(null, "Informe um E-mail valido");
+                            sexoAluno[i] = JOptionPane.showInputDialog(null, "Informe o nome completo");
+                            telefoneAluno[i] = JOptionPane.showInputDialog(null, "Informe numero de telefone com o DDD");
+                            dataNascAluno[i] = JOptionPane.showInputDialog(null, "Informe o nome completo");
+
+                            cpfAluno[i] = JOptionPane.showInputDialog(null, "Informe o nome completo");
+
+                            enderecoAluno[i] = JOptionPane.showInputDialog(null, "Informe o nome completo");
+                            cidadeAluno[i] = JOptionPane.showInputDialog(null, "Informe o nome completo");
+                            estadoAluno[i] = JOptionPane.showInputDialog(null, "Informe o nome completo");
+
+                            String idCategoria = JOptionPane.showInputDialog(null,
+                                    "Qaul Categoria de ensino Gostaria de aprender?\n\n"
+                                    + "1 Ciências Humanas e suas Tecnologias\n"
+                                    + "2 Ciências da Natureza e suas Tecnologias\n"
+                                    + "3 Linguagens, Códigos e suas Tecnologias\n"
+                                    + "4 Matemática e suas Tecnologias\n"
+                                    + "5 Redação.");
+
+                            switch (idCategoria) {
+                                case "1":
+                                    categoriaENEMAluno[i] = "Ciências Humanas e suas Tecnologias";
+
+                                    break;
+                                case "2":
+                                    categoriaENEMAluno[i] = "Ciências da Natureza e suas Tecnologias";
+
+                                    break;
+                                case "3":
+                                    categoriaENEMAluno[i] = "Linguagens, Códigos e suas Tecnologias";
+
+                                    break;
+                                case "4":
+                                    categoriaENEMAluno[i] = "Matemática e suas Tecnologias";
+
+                                    break;
+                                case "5":
+                                    categoriaENEMAluno[i] = "Redação";
+
+                                    break;
+                                default:
+                                    JOptionPane.showMessageDialog(null, "Valor invalido!");
+
+                            }
+                        }
+
+                        controle = 99;
+
+                    }
+                }
+                if (encontrado == false) {
+                    JOptionPane.showMessageDialog(null, "Não encontrado!");
+                }
+            }
+/////////////////////// exclui um cadastro //////////////////////////////////
+            if (controle == 3) {
 
                 String tipoUser = JOptionPane.showInputDialog(null, "1. Professor\n\n2. Aluno");
 
@@ -275,89 +434,143 @@ public class Pi1Modulo1A {
                     String pesquisa = JOptionPane.showInputDialog(null, "Informe o nome de usuario");
                     for (int i = 0; i < posP; i++) {
                         if (usuarioProf[i].equals(pesquisa)) {
+
                             encontrado = true;
-                            JOptionPane.showMessageDialog(null, ""
-                                    + "Nome " + nomeProf[i]
-                                    + "" + usuarioProf[i]
-                                    + "" + sexoProf[i]
-                                    + "" + emailProf[i]
-                                    + "" + telefoneProf[i]
-                                    + "" + dataNascProf[i]
-                                    + "" + cpfProf[i]
-                                    + "" + logradouroProf[i] + " " + enderecoProf[i]
-                                    + "" + cidadeProf[i]
-                                    + "" + estadoProf[i]
-                                    + "" + categoriaENEMProf[i]
-                            );
+
+                            matriculaProf[i] = "";
+                            nomeProf[i] = "";
+                            usuarioProf[i] = "";
+                            senhaProf[i] = "";
+                            dataNascProf[i] = "";
+                            telefoneProf[i] = "";
+                            cpfProf[i] = "";
+                            enderecoProf[i] = "";
+
+                            cidadeProf[i] = "";
+                            estadoProf[i] = "";
+                            categoriaENEMProf[i] = "";
+                            materiaProf[i] = "";
+                            sexoProf[i] = "";
 
                         }
                     }
 
                 }
-                controle = 99;
+                if (iduser == 2) {
+                    String pesquisa = JOptionPane.showInputDialog(null, "Informe o nome de usuario");
+                    for (int i = 0; i < posA; i++) {
+                        if (usuarioProf[i].equals(pesquisa)) {
 
-            }
+                            encontrado = true;
 
-            if (encontrado == false) {
-                JOptionPane.showMessageDialog(null, "Não encontrado!");
-            }
-            if (controle == 3) {
+                            matriculaAluno[i] = "";
+                            nomeAluno[i] = "";
+                            usuarioAluno[i] = "";
+                            senhaAluno[i] = "";
+                            dataNascAluno[i] = "";
+                            telefoneAluno[i] = "";
+                            cpfAluno[i] = "";
+                            enderecoAluno[i] = "";
 
-                String pesquisa = JOptionPane.showInputDialog(null, "Informe o nome de usuario");
-                for (int i = 0; i < pos; i++) {
-                    if (usuario[i].equals(pesquisa)) {
-                        encontrado = true;
-                        nome[i] = "";
-                        email[i] = "";
-                        usuario[i] = "";
-                        senha[i] = "";
-                        telefone[i] = "";
+                            cidadeAluno[i] = "";
+                            estadoAluno[i] = "";
+                            categoriaENEMAluno[i] = "";
+                            materiaAluno[i] = "";
+                            sexoProf[i] = "";
 
-                        profOuAluno[i] = "";
+                        }
 
-                        categoria[i] = "";
-                        materia[i] = "";
-
+                    }
+                    controle = 99;
+                    if (encontrado == false) {
+                        JOptionPane.showMessageDialog(null, "Não encontrado!");
                     }
 
                 }
-                controle = 99;
-
             }
 
-            if (encontrado == false) {
-                JOptionPane.showMessageDialog(null, "Não encontrado!");
-            }
+////////////////Pesquisa usuarios / Professor e Aluno //////////////////////
             if (controle == 4) {
 
-                String pesquisa = JOptionPane.showInputDialog(null, "Informe o nome de usuario");
-                for (int i = 0; i < pos; i++) {
-                    if (usuario[i].equals(pesquisa)) {
-                        encontrado = true;
+                String id3 = JOptionPane.showInputDialog(null, "1. Professor\n2. Aluno");
+                int pesquisar = 0;
+                switch (id3) {
+                    case "1":
+                        pesquisar = 1;
+                        break;
+                    case "2":
+                        pesquisar = 2;
+                        break;
+                    default:
+                        JOptionPane.showMessageDialog(null, "Valor invalido!");
+                }
 
-                        int pA = Integer.parseInt(profOuAluno[i]) % 2;
-                        String aprenderouensinar = "";
-                        aprenderouensinar = (pA == 1) ? "Professor" : "Aluno";
+                if (pesquisar == 1) {
+                    String pesquisa = JOptionPane.showInputDialog(null, "Informe o nome de usuario");
+                    for (int i = 0; i < posP; i++) {
+                        if (usuarioProf[i].equals(pesquisa)) {
 
-                        JOptionPane.showMessageDialog(null,
-                                "Nome: " + nome[i] + "\n"
-                                + "E-mail: " + email[i] + "\n"
-                                + "Nome: " + usuario[i] + "\n"
-                                + "Telefone: " + telefone[i] + "\n"
-                                + aprenderouensinar + "\n"
-                                + "Categoria: " + categoria[i] + "\n"
-                                + "Materia: " + materia[i] + "\n"
-                        );
+                            encontrado = true;
+
+                            JOptionPane.showMessageDialog(null, ""
+                                    + "Nome: " + nomeProf[i] + "/n"
+                                    + "Usuario: " + usuarioProf[i] + "/n"
+                                    + "Sexo: " + sexoProf[i] + "/n"
+                                    + "E-mail: " + emailProf[i] + "/n"
+                                    + "Telefone: " + telefoneProf[i] + "/n"
+                                    + "Data Nascimento: " + dataNascProf[i] + "/n"
+                                    + "CPF: " + cpfProf[i] + "/n"
+                                    + "Endereço: " + enderecoProf[i] + "/n"
+                                    + "Cidade: " + cidadeProf[i] + "/n"
+                                    + "Estafo: " + estadoProf[i] + "/n"
+                                    + "Categoria: " + categoriaENEMProf[i] + "/n"
+                            );
+                        }
+                        if (encontrado == false) {
+                            JOptionPane.showMessageDialog(null, "Não encontrado!");
+                        }
 
                     }
 
                 }
+                if (pesquisar == 2) {
+
+                    String pesquisa = JOptionPane.showInputDialog(null, "Informe o nome de usuario");
+
+                    for (int i = 0; i < posA; i++) {
+
+                        if (usuarioAluno[i].equals(pesquisa)) {
+
+                            encontrado = true;
+
+                            JOptionPane.showMessageDialog(null, ""
+                                    + "Nome: " + nomeAluno[i] + "\n"
+                                    + "Usuario: " + usuarioAluno[i] + "\n"
+                                    + "Sexo: " + sexoAluno[i] + "\n"
+                                    + "E-mail: " + emailAluno[i] + "\n"
+                                    + "Telefone: " + telefoneAluno[i] + "\n"
+                                    + "Data Nascimento: " + dataNascAluno[i] + "\n"
+                                    + "CPF: " + cpfAluno[i] + "\n"
+                                    + "Endereço: " + enderecoAluno[i] + "\n"
+                                    + "Cidade: " + cidadeAluno[i] + "\n"
+                                    + "Estafo: " + estadoAluno[i] + "\n"
+                                    + "Categoria: " + categoriaENEMAluno[i] + "\n");
+                        }
+
+                        if (encontrado == false) {
+                            JOptionPane.showMessageDialog(null, "Não encontrado!");
+                        }
+
+                    }
+
+                }
+
                 controle = 99;
+                if (encontrado == false) {
+                    JOptionPane.showMessageDialog(null, "Não encontrado!");
 
-            }
+                }
 
-            if (encontrado == false) {
-                JOptionPane.showMessageDialog(null, "Não encontrado!");
             }
 
         } while (controle != 0);
