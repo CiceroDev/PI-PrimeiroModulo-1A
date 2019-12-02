@@ -52,7 +52,7 @@ public class Pi1Modulo1A {
 
         nomeAluno[0] = "Yasmin Melo";
 
-        usuarioAluno[0] = "Cipen1938";
+        usuarioAluno[0] = "yasmin";
         senhaAluno[0] = "uo3eekoh0Ahz";
 
         emailAluno[0] = "yasmincarvalhomelo@teleworm.us";
@@ -97,8 +97,6 @@ public class Pi1Modulo1A {
 
 ////////////////////////////////////////////////////////////////////////////////
         do {
-            JOptionPane.showMessageDialog(null, controle);
-
             encontrado = false; //por padrão;
 
             //Menu Painel de controle
@@ -107,7 +105,7 @@ public class Pi1Modulo1A {
                     + "3. Excluir\n"
                     + "4. Pesquisar\n"
                     + "5. Listar\n"
-                    + "0. Sair", "AGENDA", 1);
+                    + "0. Sair", "Pasinel de Controle", 1);
             switch (op) {
                 case "1":
                     controle = 1;
@@ -346,6 +344,7 @@ public class Pi1Modulo1A {
                 }
 
 ///////////////////// se aulerar == 1  autera o Aluno ///////////////////////
+
                 if (alterar == 2) {
                     String pesquisa = JOptionPane.showInputDialog(null, "Informe o nome de usuario");
                     for (int i = 0; i < posA; i++) {
@@ -413,6 +412,7 @@ public class Pi1Modulo1A {
                 }
             }
 /////////////////////// exclui um cadastro //////////////////////////////////
+
             if (controle == 3) {
 
                 String tipoUser = JOptionPane.showInputDialog(null, "1. Professor\n\n2. Aluno");
@@ -562,17 +562,16 @@ public class Pi1Modulo1A {
                         }
 
                     }
+                    controle = 99;
+                    if (encontrado == false) {
+                        JOptionPane.showMessageDialog(null, "Não encontrado!");
+
+                    }
 
                 }
 
-                controle = 99;
-                if (encontrado == false) {
-                    JOptionPane.showMessageDialog(null, "Não encontrado!");
-
-                }
-
-            }
-
+           }
+            
         } while (controle != 0);
         JOptionPane.showMessageDialog(null, "Programa encerrado!");
 
