@@ -344,7 +344,6 @@ public class Pi1Modulo1A {
                 }
 
 ///////////////////// se aulerar == 1  autera o Aluno ///////////////////////
-
                 if (alterar == 2) {
                     String pesquisa = JOptionPane.showInputDialog(null, "Informe o nome de usuario");
                     for (int i = 0; i < posA; i++) {
@@ -557,10 +556,6 @@ public class Pi1Modulo1A {
                                     + "Categoria: " + categoriaENEMAluno[i] + "\n");
                         }
 
-                        if (encontrado == false) {
-                            JOptionPane.showMessageDialog(null, "Não encontrado!");
-                        }
-
                     }
                     controle = 99;
                     if (encontrado == false) {
@@ -570,8 +565,44 @@ public class Pi1Modulo1A {
 
                 }
 
-           }
-            
+            }
+            if (controle == 5) {
+
+                String id3 = JOptionPane.showInputDialog(null, "1. Professor\n2. Aluno");
+                int Lista = 0;
+                switch (id3) {
+                    case "1":
+                        Lista = 1;
+                        break;
+                    case "2":
+                        Lista = 2;
+                        break;
+                    default:
+                        JOptionPane.showMessageDialog(null, "Valor invalido!");
+                }
+                if (Lista == 1) {
+                    for (int i = 0; i < posP; i++) {
+                        JOptionPane.showMessageDialog(null,
+                                "Nome: " + nomeProf[i] + "\n"
+                                + "Usuario: " + usuarioProf[i] + "\n"
+                                + "CPF: " + cpfProf[i] + "\n");
+
+                    }
+
+                }
+                if (Lista == 2) {
+                    for (int i = 0; i < posA; i++) {
+                        JOptionPane.showMessageDialog(null,
+                                "Nome: " + nomeAluno[i] + "\n"
+                                + "Usuario: " + usuarioAluno[i] + "\n"
+                                + "CPF: " + cpfAluno[i] + "\n");
+
+                    }
+
+                }
+                controle = 99;
+            }
+
         } while (controle != 0);
         JOptionPane.showMessageDialog(null, "Programa encerrado!");
 
